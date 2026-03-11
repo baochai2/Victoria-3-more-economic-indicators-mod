@@ -21,7 +21,7 @@ indicators_monthly_pulse = {
 
 indicators_monthly_pulse_country = {
     effect = {
-        # initializa variables for only once
+        # initialize variables for only once
         initialize_indicators_variables = yes
         # track last year GDP growth rate
         calculte_last_year_gdp_growth_rate = yes
