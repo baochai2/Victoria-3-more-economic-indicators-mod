@@ -15,17 +15,17 @@ indicators_monthly_pulse = {
         # update statistical month monthly
         update_stat_month = yes
         # track ranking by GDP growth rate
-        calculate_ranking_by_gdp_growth_rate = yes
+        # calculate_ranking_by_gdp_growth_rate = yes
     }
 }
 
 indicators_monthly_pulse_country = {
     effect = {
         # initialize variables for only once
-        initialize_indicators_variables = yes
+        # initialize_indicators_variables = yes
         # track last year GDP growth rate
         calculte_last_year_gdp_growth_rate = yes
         # track annual projected GDP growth rate
-        calculate_annual_projected_gdp_growth_rate = yes
+        # calculate_annual_projected_gdp_growth_rate = yes
     }
 }

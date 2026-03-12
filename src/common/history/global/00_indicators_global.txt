@@ -1,0 +1,8 @@
+﻿GLOBAL = {
+    every_country = {
+        trigger_event = {
+            id = indicators_events.1
+            days = 1
+        }
+    }
+}
