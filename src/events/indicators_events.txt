@@ -8,8 +8,6 @@ indicators_events.1 = {
         every_country = {
             # initialize variables for only once
             initialize_indicators_variables = yes
-            # track last year GDP growth rate
-            # calculte_last_year_gdp_growth_rate = yes
             # track annual projected GDP growth rate
             calculate_annual_projected_gdp_growth_rate = yes
         }
