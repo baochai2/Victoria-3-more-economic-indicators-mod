@@ -2,7 +2,7 @@
     GDP Growth Indicators
 </h1>
 
-**GDP Growth Indicators** is a Victoria 3 mod that introduces GDP growth rate and ranking by it.
+**GDP Growth Indicators** is a Victoria 3 mod that introduces GDP growth rate (weekly update) and ranking by it.
 
 ## Supported Version
 
