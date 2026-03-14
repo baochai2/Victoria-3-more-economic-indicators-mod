@@ -1,18 +1,11 @@
 ﻿update_stat_month = {
-    if = {
-        limit = {
-            global_var:stat_month < 12
-        }
-        change_global_variable = {
-            name = stat_month
-            add = 1
-        }
+    set_global_variable = {
+        name = stat_month
+        value = month
     }
-    else = {
-        change_global_variable = {
-            name = stat_month
-            subtract = 11
-        }
+    change_global_variable = {
+        name = stat_month
+        add = 1
     }
 }
 
@@ -22,6 +15,13 @@ initialize_indicators_variables = {
         set_global_variable = {
             name = stat_month
             value = 1
+        }
+    }
+    if = {
+        limit = { NOT = { has_variable = last_year_gdp_growth_rate_trigger } }
+        set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 1  # 0 = unlocked, 1 = locked
         }
     }
     if = {
@@ -50,7 +50,8 @@ initialize_indicators_variables = {
 calculte_last_year_gdp_growth_rate = {
     if = {
         limit = {
-            global_var:stat_month >= 12  # calculate yearly
+            global_var:stat_month <= 1  # calculate yearly in December
+            var:last_year_gdp_growth_rate_trigger <= 0
         }
 
         set_variable = {
@@ -60,6 +61,19 @@ calculte_last_year_gdp_growth_rate = {
         set_variable = {
             name = year_start_gdp
             value = gdp
+        }
+        set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 1
+        }
+    }
+    else_if = {
+        limit = {
+            global_var:stat_month >= 6
+        }
+        set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 0
         }
     }
 }
