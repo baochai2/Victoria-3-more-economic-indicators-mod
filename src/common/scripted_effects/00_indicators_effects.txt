@@ -1,61 +1,45 @@
 ﻿update_stat_month = {
-    if = {
-        limit = {
-            global_var:stat_month >= 12
-        }
-        change_global_variable = {
-            name = stat_month
-            subtract = 11
-        }
+    set_global_variable = {
+        name = stat_month
+        value = month
     }
-    else = {
-        change_global_variable = {
-            name = stat_month
-            add = 1
-        }
+    change_global_variable = {
+        name = stat_month
+        add = 1
     }
 }
 
 initialize_indicators_variables = {
     if = {
-        limit = {
-            NOT = {
-                has_global_variable = stat_month
-            }
-        }
+        limit = { NOT = { has_global_variable = stat_month } }
         set_global_variable = {
             name = stat_month
             value = 1
         }
     }
     if = {
-        limit = {
-            NOT = {
-                has_variable = last_year_gdp_growth_rate
-            }
+        limit = { NOT = { has_variable = last_year_gdp_growth_rate_trigger } }
+        set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 1  # 0 = unlocked, 1 = locked
         }
+    }
+    if = {
+        limit = { NOT = { has_variable = last_year_gdp_growth_rate } }
         set_variable = {
             name = last_year_gdp_growth_rate
             value = 0
         }
     }
     if = {
-        limit = {
-            NOT = {
-                has_variable = year_start_gdp
-            }
-        }
+        limit = { NOT = { has_variable = year_start_gdp } }
         set_variable = {
             name = year_start_gdp
             value = gdp
         }
     }
     if = {
-        limit = {
-            NOT = {
-                has_variable = gdp_growth_rate
-            }
-        }
+        limit = { NOT = { has_variable = gdp_growth_rate } }
         set_variable = {
             name = gdp_growth_rate
             value = 0
@@ -63,145 +47,98 @@ initialize_indicators_variables = {
     }
 }
 
-# annual projected gdp growth rate = (current gdp - year start gdp) / year start gdp / (month - 1) * 12
 calculte_last_year_gdp_growth_rate = {
     if = {
         limit = {
-            global_var:stat_month >= 12  # calculate yearly
+            global_var:stat_month <= 1  # calculate yearly in January
+            var:last_year_gdp_growth_rate_trigger <= 0
         }
-        # safety check year_start_gdp = 0
-        if = {
-            limit = {
-                var:year_start_gdp > 0
-            }
-            set_variable = {
-                name = gdp_diff
-                value = gdp
-            }
-            change_variable = {
-                name = gdp_diff
-                subtract = var:year_start_gdp
-            }
-            set_variable = {
-                name = real_gdp_growth_rate
-                value = var:gdp_diff
-            }
-            change_variable = {
-                name = real_gdp_growth_rate
-                divide = var:year_start_gdp
-            }
-            set_variable = {
-                name = real_gdp_growth_rate_average
-                value = var:real_gdp_growth_rate
-            }
-            change_variable = {
-                name = real_gdp_growth_rate_average
-                divide = global_var:stat_month
-            }
-            set_variable = {
-                name = last_year_gdp_growth_rate
-                value = var:real_gdp_growth_rate_average
-            }
-            change_variable = {
-                name = last_year_gdp_growth_rate
-                multiply = 12
-            }
-        }
-        else = {
-            if = {
-                limit = {
-                    gdp > 0
-                }
-                set_variable = {
-                    name = last_year_gdp_growth_rate
-                    value = 1000000000  # 1 billion
-                }
-            }
-            else = {
-                set_variable = {
-                    name = last_year_gdp_growth_rate
-                    value = 0
-                }
-            }
-        }
-    }
-}
 
-calculate_annual_projected_gdp_growth_rate = {
-    if = {
-        limit = {
-            global_var:stat_month >= 12
+        set_variable = {
+            name = last_year_gdp_growth_rate
+            value = var:real_gdp_growth_rate
         }
         set_variable = {
             name = year_start_gdp
             value = gdp
         }
         set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 1
+        }
+    }
+    else_if = {
+        limit = {
+            global_var:stat_month >= 6
+        }
+        set_variable = {
+            name = last_year_gdp_growth_rate_trigger
+            value = 0
+        }
+    }
+}
+
+# annual projected gdp growth rate = (current gdp - year start gdp) / year start gdp / (month - 1) * 12
+calculate_annual_projected_gdp_growth_rate = {
+    if = {
+        limit = {
+            has_variable = year_start_gdp
+        }
+        set_variable = {
+            name = gdp_diff
+            value = gdp
+        }
+        change_variable = {
+            name = gdp_diff
+            subtract = var:year_start_gdp
+        }
+        set_variable = {
+            name = real_gdp_growth_rate
+            value = var:gdp_diff
+        }
+        change_variable = {
+            name = real_gdp_growth_rate
+            divide = var:year_start_gdp
+        }
+        set_variable = {
+            name = real_gdp_growth_rate_average
+            value = var:real_gdp_growth_rate
+        }
+        change_variable = {
+            name = real_gdp_growth_rate_average
+            divide = global_var:stat_month
+        }
+        set_variable = {
             name = gdp_growth_rate
-            value = var:last_year_gdp_growth_rate
+            value = var:real_gdp_growth_rate_average
+        }
+        change_variable = {
+            name = gdp_growth_rate
+            multiply = 12
+        }
+        set_variable = {
+            name = gdp_net_growth
+            value = var:year_start_gdp
+        }
+        change_variable = {
+            name = gdp_net_growth
+            multiply = var:gdp_growth_rate
         }
     }
     else = {
         if = {
             limit = {
-                var:year_start_gdp > 0
-            }
-            set_variable = {
-                name = gdp_diff
-                value = gdp
-            }
-            change_variable = {
-                name = gdp_diff
-                subtract = var:year_start_gdp
-            }
-            set_variable = {
-                name = real_gdp_growth_rate
-                value = var:gdp_diff
-            }
-            change_variable = {
-                name = real_gdp_growth_rate
-                divide = var:year_start_gdp
-            }
-            set_variable = {
-                name = real_gdp_growth_rate_average
-                value = var:real_gdp_growth_rate
-            }
-            change_variable = {
-                name = real_gdp_growth_rate_average
-                divide = global_var:stat_month
+                gdp > 0
             }
             set_variable = {
                 name = gdp_growth_rate
-                value = var:real_gdp_growth_rate_average
-            }
-            change_variable = {
-                name = gdp_growth_rate
-                multiply = 12
-            }
-            set_variable = {
-                name = gdp_net_growth
-                value = gdp
-            }
-            change_variable = {
-                name = gdp_net_growth
-                multiply = var:gdp_growth_rate
+                value = 6.66
             }
         }
         else = {
-            if = {
-                limit = {
-                    gdp > 0
-                }
-                set_variable = {
-                    name = gdp_growth_rate
-                    value = 1000000000
-                }
-            }
-            else = {
-                set_variable = {
-                    name = gdp_growth_rate
-                    value = 0
-                }
+            set_variable = {
+                name = gdp_growth_rate
+                value = 8.88
             }
         }
     }
