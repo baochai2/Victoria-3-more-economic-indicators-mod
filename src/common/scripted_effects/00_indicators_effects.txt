@@ -50,7 +50,7 @@ initialize_indicators_variables = {
 calculte_last_year_gdp_growth_rate = {
     if = {
         limit = {
-            global_var:stat_month <= 1  # calculate yearly in December
+            global_var:stat_month <= 1  # calculate yearly in January
             var:last_year_gdp_growth_rate_trigger <= 0
         }
 
