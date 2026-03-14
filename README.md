@@ -6,7 +6,7 @@
 
 ## Supported Version
 
-1.9.8 - 1.12.4
+1.9.8 - 1.12.5
 
 ## Supported Language
 
@@ -27,9 +27,10 @@ Turkish
 </p>
 
 ## Indicators description:
-1. Start-of-Year GDP. GDP at Jan 1 this year
+1. Start-of-Year GDP. GDP at January this year
 2. Annual projected GDP growth rate. The estimated GDP growth this year
-3. GDP growth rate this year. GDP growth from Jan 1 this year until now
+3. GDP growth rate this year. GDP growth from January this year until now
+4. GDP growth rate last year. Calculated in every January
 
 ## Finally
 
