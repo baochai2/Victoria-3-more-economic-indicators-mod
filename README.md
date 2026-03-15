@@ -1,8 +1,8 @@
 <h1 align="center">
-    GDP Growth Indicators
+    More Economic Indicators
 </h1>
 
-**GDP Growth Indicators** is a Victoria 3 mod that introduces GDP growth rate (weekly update) and ranking by it.
+**More Economic Indicators** is a Victoria 3 mod that introduces GDP growth rate, debt growth rate etc. You can check these indicators to make sure that your economy remains healthy.
 
 ## Supported Version
 
@@ -26,11 +26,15 @@ Turkish
 <img src="https://i.imgur.com/XXuJUyr.png"/>
 </p>
 
-## Indicators description:
+## GDP Indicators description:
 1. Start-of-Year GDP. GDP at January this year
 2. Annual projected GDP growth rate. The estimated GDP growth this year
-3. GDP growth rate this year. GDP growth from January this year until now
+3. GDP growth rate this year. GDP growth from January this year until now. It decides your credit limit growth
 4. GDP growth rate last year. Calculated in every January
+
+## debt Indicators description:
+1. Annual projected debt growth rate. The estimated debt growth this year
+2. debt-to-GDP ratio. = total debt / GDP
 
 ## Finally
 
