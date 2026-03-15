@@ -7,3 +7,8 @@ concept_debt_growth_rate = {
     texture = "gfx/interface/icons/topbar/income_power_icon.dds"
     is_loading_tip = yes
 }
+
+concept_debt_to_gdp_ratio = {
+    texture = "gfx/interface/icons/topbar/income_power_icon.dds"
+    is_loading_tip = yes
+}
