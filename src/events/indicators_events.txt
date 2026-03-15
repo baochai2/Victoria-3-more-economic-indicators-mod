@@ -14,8 +14,8 @@ indicators_events.1 = {
             calculate_annual_projected_gdp_growth_rate = yes
             # track debt and year start debt
             update_debt = yes
-            # track annual projected debt growth rate
-            calculate_annual_projected_debt_growth_rate = yes
+            # track real debt growth rate
+            calculate_real_debt_growth_rate = yes
             # track debt-to-GDP ratio
             calculate_debt_to_gdp_ratio = yes
         }

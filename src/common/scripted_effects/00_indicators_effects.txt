@@ -49,7 +49,7 @@ initialize_indicators_variables = {
         limit = { NOT = { has_variable = debt } }
         set_variable = {
             name = debt
-            value = 0
+            value = 1000  # convenient to calculte debt growth rate when year start debt = 0
         }
     }
     if = {
@@ -67,9 +67,9 @@ initialize_indicators_variables = {
         }
     }
     if = {
-        limit = { NOT = { has_variable = debt_growth_rate } }
+        limit = { NOT = { has_variable = real_debt_growth_rate } }
         set_variable = {
-            name = debt_growth_rate
+            name = real_debt_growth_rate
             value = 0
         }
     }
@@ -113,7 +113,7 @@ calculte_last_year_gdp_growth_rate = {
     }
 }
 
-# annual projected gdp growth rate = (current gdp - year start gdp) / year start gdp / (month - 1) * 12
+# annual projected gdp growth rate = (current GDP - year start gdp) / year start gdp / month * 12
 calculate_annual_projected_gdp_growth_rate = {
     if = {
         limit = {
@@ -217,6 +217,17 @@ update_debt = {
         multiply = credit
     }
 
+    # set debt to value 1000 when it < 1000
+    if = {
+        limit = {
+            var:debt < 1000
+        }
+        set_variable = {
+            name = debt
+            value = 1000
+        }
+    }
+
     if = {
         limit = {
             global_var:stat_month <= 1
@@ -242,13 +253,13 @@ update_debt = {
     }
 }
 
-calculate_annual_projected_debt_growth_rate = {
+calculate_real_debt_growth_rate = {
     if = {
         limit = {
             has_variable = year_start_debt
             var:year_start_debt > 0
         }
-        # calculate annual projected gdp growth rate
+        # calculate real debt growth rate
         set_variable = {
             name = debt_diff
             value = var:debt
@@ -265,38 +276,47 @@ calculate_annual_projected_debt_growth_rate = {
             name = real_debt_growth_rate
             divide = var:year_start_debt
         }
+
+        # calculate debt gdp growth rate balance, = 2 * GDP growth rate - debt growth rate
         set_variable = {
-            name = real_debt_growth_rate_average
-            value = var:real_debt_growth_rate
+            name = debt_GDP_growth_rate_balance
+            value = var:real_gdp_growth_rate
         }
         change_variable = {
-            name = real_debt_growth_rate_average
-            divide = global_var:stat_month
-        }
-        set_variable = {
-            name = debt_growth_rate
-            value = var:real_debt_growth_rate_average
+            name = debt_GDP_growth_rate_balance
+            multiply = 2
         }
         change_variable = {
-            name = debt_growth_rate
-            multiply = 12
+            name = debt_GDP_growth_rate_balance
+            subtract = var:real_debt_growth_rate
         }
     }
     else = {
         set_variable = {
-            name = debt_growth_rate
+            name = real_debt_growth_rate
             value = 0
         }
     }
 }
 
 calculate_debt_to_gdp_ratio = {
-    set_variable = {
-        name = debt_to_gdp_ratio
-        value = var:debt
+    if = {
+        limit = {
+            gdp > 0
+        }
+        set_variable = {
+            name = debt_to_gdp_ratio
+            value = var:debt
+        }
+        change_variable = {
+            name = debt_to_gdp_ratio
+            divide = gdp
+        }
     }
-    change_variable = {
-        name = debt_to_gdp_ratio
-        divide = gdp
+    else = {
+        set_variable = {
+            name = debt_to_gdp_ratio
+            value = 6.66
+        }
     }
 }
