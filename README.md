@@ -23,7 +23,8 @@ Spanish<br>
 Turkish
 
 <p align="center" >
-<img src="https://i.imgur.com/XXuJUyr.png"/>
+  <img src="https://i.imgur.com/XXuJUyr.png" width="45%"/>
+  <img src="https://i.imgur.com/mk3DimH.png" width="45%"/>
 </p>
 
 ## GDP Indicators description:
