@@ -28,7 +28,7 @@ Turkish
 </p>
 <p align="center" >
   <img src="https://i.imgur.com/aC2fcLs.png" width="45%" height="250"/>
-  <img src="https://i.imgur.com/KVKxxoK.png" width="45%" height="250"/>
+  <img src="https://i.imgur.com/eHQh8IV.png" width="45%" height="250"/>
 </p>
 
 ## GDP Indicators Description:
