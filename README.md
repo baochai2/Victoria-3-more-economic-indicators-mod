@@ -27,7 +27,7 @@ Turkish
   <img src="https://i.imgur.com/mk3DimH.png" width="45%" height="250"/>
 </p>
 <p align="center" >
-  <img src="https://i.imgur.com/LyW8HtN.png" width="45%" height="250"/>
+  <img src="https://i.imgur.com/aC2fcLs.png" width="45%" height="250"/>
   <img src="https://i.imgur.com/KVKxxoK.png" width="45%" height="250"/>
 </p>
 
