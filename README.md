@@ -2,7 +2,7 @@
     More Economic Indicators
 </h1>
 
-**More Economic Indicators** is a Victoria 3 mod that introduces GDP growth rate, debt growth rate etc. You can check these indicators to make sure that your economy remains healthy.
+**More Economic Indicators** is a Victoria 3 mod that introduces GDP growth rate, debt growth rate etc. They are updated weekly. You can check these indicators to make sure that your economy remains healthy.
 
 ## Supported Version
 
