@@ -2,3 +2,12 @@
  concept_gdp_growth_rate:0 "国内生产总值增长率"
  concept_gdp_growth_rate_short:0 "GDP增长率"
  concept_gdp_growth_rate_desc:0 "你的[concept_country]的[concept_gdp]年化变化率。它反映了所有[Concept('concept_building','$concept_buildings$')]中受雇的[Concept('concept_pop','$concept_pops$')]所生产的总产出变化，受[concept_pop_growth]、通过[concept_construction]进行的投资以及改变至先进的[Concept('concept_production_method','$concept_production_methods$')]等行为所影响。一定的[Concept('concept_gdp_growth_rate','$concept_gdp_growth_rate_short$')]会影响$concept_credit_limit$的增长速度，以及[Concept('concept_loyalist','$concept_loyalists$')]与[Concept('concept_radical','$concept_radicals$')]的数量。"
+
+ concept_debt_growth_rate:0 "债务增长率"
+ concept_debt_growth_rate_desc:0 "[concept_country] 的总 [concept_loans] 每年增加或减少的比率。如果 [concept_debt_growth_rate] 低于 $GDP_GROWTH_RATE_SHORT$ 的两倍，你的经济仍被认为是 $concept_economy_health_healthy_short$。加杠杆！！！"
+
+ concept_debt_to_gdp_ratio:0 "债务占GDP比率"
+ concept_debt_to_gdp_ratio_desc:0 "[concept_country] 的累计债务与其 $GDP_SHORT$ 之间的比例。"
+
+ concept_debt_GDP_growth_rate_balance:0 "债务与GDP增长率平衡"
+ concept_debt_GDP_growth_rate_balance_desc:0 "只要该平衡 >= 0，你的经济就保持 $concept_economy_health_healthy_short$ 状态。"

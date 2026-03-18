@@ -1,2 +1,4 @@
 ﻿l_polish:
  GDP_TOOLTIP:2 "#header [concept_gdp]#!\n[Country.GetName] – aktualny $GDP_SHORT$: #N [Country.GetGDP|Dv] @money!#! ([Country.GetGDPRanking])\n$INDICATORS_GDP_TOOLTIP$\n$TOOLTIP_DELIMITER$\nPKB per capita: #variable [Country.GetGDPPerCapita|2*] @money!#! ([Country.GetGDPPerCapitaRanking])\n\n"
+
+ CREDIT_DESC:1 "[concept_credit]: #tooltippable #tooltip:CREDIT_PROGRESS #variable [GetPlayer.GetPrincipal|K]#!#!#!/#maximum [GetPlayer.GetMaxCredit|K] @money!#!\n$INDICATORS_CREDIT_DESC$"

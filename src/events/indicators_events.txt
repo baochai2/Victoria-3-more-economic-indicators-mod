@@ -12,6 +12,12 @@ indicators_events.1 = {
             calculte_last_year_gdp_growth_rate = yes
             # track annual projected GDP growth rate
             calculate_annual_projected_gdp_growth_rate = yes
+            # track debt and year start debt
+            update_debt = yes
+            # track real debt growth rate
+            calculate_real_debt_growth_rate = yes
+            # track debt-to-GDP ratio
+            calculate_debt_to_gdp_ratio = yes
         }
 
         # update statistical month monthly
@@ -19,6 +25,7 @@ indicators_events.1 = {
         # track ranking by GDP growth rate
         calculate_ranking_by_gdp_growth_rate = yes
 
+        # weekly update
         trigger_event = {
             id = indicators_events.1
             days = 7

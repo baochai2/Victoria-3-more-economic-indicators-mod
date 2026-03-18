@@ -2,3 +2,12 @@
  concept_gdp_growth_rate:0 "Taxa de Crescimento do Produto Interno Bruto"
  concept_gdp_growth_rate_short:0 "Taxa de Crescimento do PIB"
  concept_gdp_growth_rate_desc:0 "A variação anualizada do [concept_gdp] do seu [concept_country]. Reflete mudanças na produção total gerada pelos [Concept('concept_pop','$concept_pops$')] empregados em todos os [Concept('concept_building','$concept_buildings$')], influenciada por [concept_pop_growth], investimentos por meio de [concept_construction] e [Concept('concept_production_method','$concept_production_methods$')] avançados. Um [Concept('concept_gdp_growth_rate','$concept_gdp_growth_rate_short$')] sustentado pode influenciar a taxa de crescimento do $concept_credit_limit$ e o número de [Concept('concept_loyalist','$concept_loyalists$')] e [Concept('concept_radical','$concept_radicals$')]."
+
+ concept_debt_growth_rate:0 "Taxa de Crescimento da Dívida"
+ concept_debt_growth_rate_desc:0 "A taxa anual na qual o total de [concept_loans] de um [concept_country] aumenta ou diminui. Se a [concept_debt_growth_rate] permanecer menor que o dobro de $GDP_GROWTH_RATE_SHORT$, sua economia ainda é considerada $concept_economy_health_healthy_short$. Pegue mais empréstimos para impulsionar sua economia!!!"
+
+ concept_debt_to_gdp_ratio:0 "Relação Dívida/PIB"
+ concept_debt_to_gdp_ratio_desc:0 "A relação entre o acúmulo de dívida de um [concept_country] e seu $GDP_SHORT$."
+
+ concept_debt_GDP_growth_rate_balance:0 "Equilíbrio entre Crescimento da Dívida e do PIB"
+ concept_debt_GDP_growth_rate_balance_desc:0 "Enquanto este equilíbrio >= 0, sua economia permanece $concept_economy_health_healthy_short$."

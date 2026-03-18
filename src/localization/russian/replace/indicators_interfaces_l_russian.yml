@@ -1,2 +1,4 @@
 ﻿l_russian:
  GDP_TOOLTIP:2 "#header [concept_gdp]#!\n#tooltippable_name Текущий [Country.GetAdjective]ий#! ВВП: #N @money![Country.GetGDP|Dv]#! ([Country.GetGDPRanking])\n$INDICATORS_GDP_TOOLTIP$\n$TOOLTIP_DELIMITER$\nВВП на душу населения: #variable @money![Country.GetGDPPerCapita|2*]#! [Country.GetGDPPerCapitaRanking]\n\n"
+
+ CREDIT_DESC:1 "[concept_credit]: #tooltippable #tooltip:CREDIT_PROGRESS #variable @money![GetPlayer.GetPrincipal|K]#!#!#! / #maximum [GetPlayer.GetMaxCredit|K]#!\n$INDICATORS_CREDIT_DESC$"

@@ -2,3 +2,12 @@
  concept_gdp_growth_rate:0 "Taux de croissance du produit intérieur brut"
  concept_gdp_growth_rate_short:0 "Taux de croissance du PIB"
  concept_gdp_growth_rate_desc:0 "La variation annualisée du [concept_gdp] de votre [concept_country]. Elle reflète les changements dans la production totale réalisée par les [Concept('concept_pop','$concept_pops$')] employés dans tous les [Concept('concept_building','$concept_buildings$')], façonnée par [concept_pop_growth], l’investissement via [concept_construction] et des [Concept('concept_production_method','$concept_production_methods$')] avancées. Un [Concept('concept_gdp_growth_rate','$concept_gdp_growth_rate_short$')] soutenu peut influencer le taux de croissance du $concept_credit_limit$ ainsi que le nombre de [Concept('concept_loyalist','$concept_loyalists$')] et de [Concept('concept_radical','$concept_radicals$')]."
+
+ concept_debt_growth_rate:0 "Taux de croissance de la dette"
+ concept_debt_growth_rate_desc:0 "Le taux annuel auquel le total des [concept_loans] d'un [concept_country] augmente ou diminue. Si le [concept_debt_growth_rate] reste inférieur à deux fois $GDP_GROWTH_RATE_SHORT$, votre économie est toujours considérée comme $concept_economy_health_healthy_short$. Empruntez davantage pour stimuler votre économie !!!"
+
+ concept_debt_to_gdp_ratio:0 "Ratio dette/PIB"
+ concept_debt_to_gdp_ratio_desc:0 "Le ratio entre l'accumulation de dette d'un [concept_country] et son $GDP_SHORT$."
+
+ concept_debt_GDP_growth_rate_balance:0 "Équilibre croissance dette-PIB"
+ concept_debt_GDP_growth_rate_balance_desc:0 "Tant que cet équilibre >= 0, votre économie reste $concept_economy_health_healthy_short$."

@@ -1,2 +1,4 @@
 ﻿l_korean:
  GDP_TOOLTIP:2 "#header [concept_gdp]#!\n현재 [Country.GetAdjective]의 $GDP_SHORT$: #N @money![Country.GetGDP|Dv]#! ([Country.GetGDPRanking])\n$INDICATORS_GDP_TOOLTIP$\n$TOOLTIP_DELIMITER$\n인당 국내총생산: #variable @money![Country.GetGDPPerCapita|2*]#! ([Country.GetGDPPerCapitaRanking])\n\n"
+
+ CREDIT_DESC:1 "[concept_credit]: #tooltippable #tooltip:CREDIT_PROGRESS #variable @money![GetPlayer.GetPrincipal|K]#!#!#! / #maximum [GetPlayer.GetMaxCredit|K]#!\n$INDICATORS_CREDIT_DESC$"

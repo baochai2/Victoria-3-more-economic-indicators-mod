@@ -2,3 +2,12 @@
  concept_gdp_growth_rate:0 "Темп роста валового внутреннего продукта"
  concept_gdp_growth_rate_short:0 "Темп роста ВВП"
  concept_gdp_growth_rate_desc:0 "Годовое изменение [concept_gdp] вашей [concept_country]. Оно отражает изменения общего объёма производства, создаваемого [Concept('concept_pop','$concept_pops$')] во всех [Concept('concept_building','$concept_buildings$')], формируемые за счёт [concept_pop_growth], инвестиций через [concept_construction] и продвинутых [Concept('concept_production_method','$concept_production_methods$')]. Устойчивый [Concept('concept_gdp_growth_rate','$concept_gdp_growth_rate_short$')] может влиять на темп роста $concept_credit_limit$ и число [Concept('concept_loyalist','$concept_loyalists$')] и [Concept('concept_radical','$concept_radicals$')]."
+
+ concept_debt_growth_rate:0 "Темп роста долга"
+ concept_debt_growth_rate_desc:0 "Годовой темп, с которым общий объём [concept_loans] в [concept_country] увеличивается или уменьшается. Если [concept_debt_growth_rate] остаётся меньше чем вдвое от $GDP_GROWTH_RATE_SHORT$, ваша экономика всё ещё считается $concept_economy_health_healthy_short$. Берите больше займов, чтобы стимулировать экономику!!!"
+
+ concept_debt_to_gdp_ratio:0 "Соотношение долга к ВВП"
+ concept_debt_to_gdp_ratio_desc:0 "Соотношение накопленного долга [concept_country] к его $GDP_SHORT$."
+
+ concept_debt_GDP_growth_rate_balance:0 "Баланс роста долга и ВВП"
+ concept_debt_GDP_growth_rate_balance_desc:0 "Пока этот баланс >= 0, ваша экономика остаётся $concept_economy_health_healthy_short$."

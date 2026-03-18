@@ -1,2 +1,4 @@
 ﻿l_braz_por:
  GDP_TOOLTIP:2 "#header [concept_gdp]#!\n$GDP_SHORT$ [Country.GetAdjective] Atual: #N @money![Country.GetGDP|Dv]#! ([Country.GetGDPRanking])\n$INDICATORS_GDP_TOOLTIP$\n$TOOLTIP_DELIMITER$\nPIB per Capita: #variable @money![Country.GetGDPPerCapita|2*]#! ([Country.GetGDPPerCapitaRanking])\n\n"
+
+ CREDIT_DESC:1 "[concept_credit]: #tooltippable #tooltip:CREDIT_PROGRESS #variable @money![GetPlayer.GetPrincipal|K]#!#!#! / #maximum [GetPlayer.GetMaxCredit|K]#!\n$INDICATORS_CREDIT_DESC$"
