@@ -49,7 +49,7 @@ initialize_indicators_variables = {
         limit = { NOT = { has_variable = debt } }
         set_variable = {
             name = debt
-            value = 1000  # convenient to calculte debt growth rate when year start debt = 0
+            value = 1000000  # convenient to calculte debt growth rate when year start debt = 0
         }
     }
     if = {
@@ -217,14 +217,14 @@ update_debt = {
         multiply = credit
     }
 
-    # set debt to value 1000 when it < 1000
+    # set debt to value 1 million when it < 1000000
     if = {
         limit = {
-            var:debt < 1000
+            var:debt < 1000000
         }
         set_variable = {
             name = debt
-            value = 1000
+            value = 1000000
         }
     }
 
@@ -277,14 +277,14 @@ calculate_real_debt_growth_rate = {
             divide = var:year_start_debt
         }
 
-        # calculate debt gdp growth rate balance, = 2 * GDP growth rate - debt growth rate
+        # calculate debt gdp growth rate balance, = GDP growth rate - 2 * debt growth rate
         set_variable = {
             name = debt_GDP_growth_rate_balance
             value = var:real_gdp_growth_rate
         }
         change_variable = {
             name = debt_GDP_growth_rate_balance
-            multiply = 2
+            subtract = var:real_debt_growth_rate
         }
         change_variable = {
             name = debt_GDP_growth_rate_balance

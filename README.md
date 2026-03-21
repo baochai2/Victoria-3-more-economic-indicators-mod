@@ -40,7 +40,7 @@ Turkish
 ## Debt Indicators Description:
 1. Real debt growth rate. Debt growth from January this year until now.
 2. Debt-to-GDP ratio. = total debt / GDP
-3. Debt GDP growth rate balance. = 2 * GDP growth rate this year - real debt growth rate. Credit limit = 2 * GDP + something else, so if 2 * GDP growth rate >= debt growth rate, you will never be bankrupt.
+3. Debt GDP growth rate balance. = GDP growth rate this year -  2 * real debt growth rate  because credit limit = base value + 0.5 * GDP + income of all buildings. If GDP growth rate >= 2 * debt growth rate, you will never be bankrupt.
 
 ## Finally
 
