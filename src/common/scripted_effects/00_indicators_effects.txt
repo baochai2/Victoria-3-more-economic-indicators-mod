@@ -49,7 +49,7 @@ initialize_indicators_variables = {
         limit = { NOT = { has_variable = debt } }
         set_variable = {
             name = debt
-            value = 1000  # convenient to calculte debt growth rate when year start debt = 0
+            value = 300000  # convenient to calculte debt growth rate when year start debt = 0
         }
     }
     if = {
@@ -217,14 +217,14 @@ update_debt = {
         multiply = credit
     }
 
-    # set debt to value 1000 when it < 1000
+    # set debt to value 300K when it < 300K
     if = {
         limit = {
-            var:debt < 1000
+            var:debt < 300000
         }
         set_variable = {
             name = debt
-            value = 1000
+            value = 300000
         }
     }
 
@@ -254,48 +254,36 @@ update_debt = {
 }
 
 calculate_real_debt_growth_rate = {
-    if = {
-        limit = {
-            has_variable = year_start_debt
-            var:year_start_debt > 0
-        }
-        # calculate real debt growth rate
-        set_variable = {
-            name = debt_diff
-            value = var:debt
-        }
-        change_variable = {
-            name = debt_diff
-            subtract = var:year_start_debt
-        }
-        set_variable = {
-            name = real_debt_growth_rate
-            value = var:debt_diff
-        }
-        change_variable = {
-            name = real_debt_growth_rate
-            divide = var:year_start_debt
-        }
-
-        # calculate debt gdp growth rate balance, = 2 * GDP growth rate - debt growth rate
-        set_variable = {
-            name = debt_GDP_growth_rate_balance
-            value = var:real_gdp_growth_rate
-        }
-        change_variable = {
-            name = debt_GDP_growth_rate_balance
-            multiply = 2
-        }
-        change_variable = {
-            name = debt_GDP_growth_rate_balance
-            subtract = var:real_debt_growth_rate
-        }
+    # calculate real debt growth rate
+    set_variable = {
+        name = debt_diff
+        value = var:debt
     }
-    else = {
-        set_variable = {
-            name = real_debt_growth_rate
-            value = 0
-        }
+    change_variable = {
+        name = debt_diff
+        subtract = var:year_start_debt
+    }
+    set_variable = {
+        name = real_debt_growth_rate
+        value = var:debt_diff
+    }
+    change_variable = {
+        name = real_debt_growth_rate
+        divide = var:year_start_debt
+    }
+
+    # calculate debt gdp growth rate balance, = 0.5 * GDP growth rate - debt growth rate
+    set_variable = {
+        name = debt_GDP_growth_rate_balance
+        value = var:real_gdp_growth_rate
+    }
+    change_variable = {
+        name = debt_GDP_growth_rate_balance
+        multiply = 0.5
+    }
+    change_variable = {
+        name = debt_GDP_growth_rate_balance
+        subtract = var:real_debt_growth_rate
     }
 }
 
