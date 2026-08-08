@@ -152,9 +152,14 @@ calculate_annual_projected_gdp_growth_rate = {
             name = gdp_growth_rate
             multiply = 12
         }
-        clamp_variable = {
-            name = gdp_growth_rate
-            min = -1
+        if = {
+            limit = {
+                var:gdp_growth_rate < -1
+            }
+            set_variable = {
+                name = gdp_growth_rate
+                value = -1
+            }
         }
 
         # calculate annual projected gdp growth
